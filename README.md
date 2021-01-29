@@ -22,11 +22,9 @@ This was a practice in creating an express server with an es6 engine. It was als
 
 ## Screenshots
 
-![Home screen](images/home.png)
-![Movie List screen](images/movie_list.png)
-![Movie screen](images/movie.png)
-![Home screen on mobile](images/home_mobile.png)
-![Movie screen on mobile](images/movie_mobile.png)
+![Home screen](public/images/home.png)
+![Movie List screen](public/images/movie_list.png)
+![Movie screen](public/images/movie.png)
 
 ## Credits
 
