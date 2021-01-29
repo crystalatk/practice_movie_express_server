@@ -1,0 +1,96 @@
+<section class="hero is-info is-fullheight">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <header class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/">
+            <img src="https://content.nexza.com/companies/e7ec1352-0a82-4e8a-801d-bdc7b7fdad80/logo.3890de6b.png" alt="Logo">
+          </a>
+          <span class="navbar-burger" data-target="navbarMenuHeroC">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroC" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="/">
+              Home
+            </a>
+            <a class="navbar-item" href="/movies">
+              Movie/Show List
+            </a>
+            <a class="navbar-item is-active" href="/movies/${movie.imdbID}">
+              ${movie.Title}
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- Hero content: will be in the middle -->
+  <div class="">
+    <div class="container has-text-centered">
+      <section class="container is-fluid">
+          <section class="hero is-info">
+
+              <p class="title is-1 block">
+                ${movie.Title}
+              </p>
+              <p class="subtitle is-4 block">
+                <b>Rated:</b> ${movie.Rated}
+              </p>
+              <div class="columns level is-multiline">
+                <div class="column is-one-third is-vcentered">
+              <p class="subtitle is-6 block">
+               <b>Realease Date:</b> ${movie.Released}
+                <br>
+                <b>Genre:</b> ${movie.Genre}
+              <br>
+                <b>Director:</b> ${movie.Director}
+                <br>
+                <b>Awards:</b> ${movie.Awards}
+                <br>
+                <br>
+                ${movie.totalSeasons ? `<b># of seasons:</b> ${movie.totalSeasons}` : ''
+                }
+              </p>
+            </div>
+            <div class="column is-two-thirds level-item">
+                <p class="subtitle is-4">
+                ${movie.Plot}
+              </p>
+            </div>
+          </div>
+          <div>
+            <p>
+              <b>Actors:</b> ${movie.Actors}
+              <br>
+            </p>
+          </div>
+          </section>
+          <section class="">
+            ${movie.Images.map(image => 
+              `<img class="m-1" src="${image}" alt="" width="500px">`
+            ).join('')}
+        </section> 
+      </section>
+    </div>
+  </div>
+
+  <!-- Hero footer: will stick at the bottom -->
+  <div class="hero-foot">
+    <nav class="tabs is-boxed is-fullwidth">
+      <div class="container">
+          <h3 class="level-item has-text-centered">Made by Crystal</h3>
+        <ul>
+          <li><a href="https://github.com/crystalatk" target="_blank">GitHub</a></li>
+          <li><a>LinkedIn</a></li>
+          <li><a>Portfolio</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</section>
