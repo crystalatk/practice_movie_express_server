@@ -1,107 +1,88 @@
 <section class="hero is-info is-fullheight">
     <!-- Hero head: will stick at the top -->
-    <div class="hero-head">
-      <header class="navbar">
-        <div class="container">
-          <div class="navbar-brand">
-            <a class="navbar-item" href="/">
-              <img src="https://content.nexza.com/companies/e7ec1352-0a82-4e8a-801d-bdc7b7fdad80/logo.3890de6b.png" alt="Logo">
-            </a>
-            <span class="navbar-burger" data-target="navbarMenuHeroC">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-          </div>
-          <div id="navbarMenuHeroC" class="navbar-menu">
-            <div class="navbar-end">
-              <a class="navbar-item" href="/">
-                Home
-              </a>
-              <a class="navbar-item is-active" href="/movies">
-                Movie/Show List
-              </a>
-            </div>
-          </div>
-        </div>
-      </header>
-    </div>
+  ${nav}
   
     <!-- Hero content: will be in the middle -->
     <div class="hero-body">
       <div class="container has-text-centered">
-        <section class="container is-fluid columns is-multiline is-desktop is-tablet">
-            ${data.map(movie => {
-                if (movie.Year.includes('–')) {
-                    return `
-                        <div class="card card-shadow column is-one-third">
-                            <a href="/movies/${movie.imdbID}">
-                            <div class="card-image">
-                                <figure class="image is-3by4">
-                                    <img src="${movie.Poster.replace('http:', 'https:')}" alt="${movie.Title} poster">
-                                </figure>
-                            </div>
-                                <div class="card-content has-background-info-dark has-text-white-bis">
-                                    <div class="media">
-                                        <div class="media-content">
-                                            <p class="title is-4 has-text-white-bis">${movie.Title}</p>
-                                            <p class="subtitle is-6 has-text-white-bis">${movie.Year} present</p>
-                                            <p class="subtitle is-6 has-text-white-bis">Rating: ${movie.Rated}</p>
-                                            <p class="subtitle is-6 has-text-white-bis">Runtime: ${movie.Runtime}</p>
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        ${movie.Plot}
-                                    </div>
-                                </div>
-                            </a>
+        <section class="container ">
+          <section class="hero is-info">
+            <p class="title is-1 block">
+              Movies
+            </p>
+            <section class="is-fluid columns is-multiline is-desktop is-tablet is-centered">
+              ${data.map(movie => {
+                if (movie.Type === 'movie') {
+                  return `
+                    <div class="card card-shadow column has-background-info-dark p-0 m-1 is-one-quarter">
+                    <a href="/movies/${movie.imdbID}">
+                      <div class="card-image">
+                        <figure class="image is-3by4">
+                          <img src="${movie.Poster.replace('http:', 'https:')}" alt="${movie.Title} poster">
+                        </figure>
+                      </div>
+                      <div class="card-content has-text-white-bis">
+                        <div class="media">
+                          <div class="media-content">
+                            <p class="title is-4 has-text-white-bis">${movie.Title}</p>
+                            <p class="subtitle is-6 has-text-white-bis">${movie.Year}</p>
+                            <p class="subtitle is-6 has-text-white-bis">Rating: ${movie.Rated}</p>
+                            <p class="subtitle is-6 has-text-white-bis">Runtime: ${movie.Runtime}</p>
+                          </div>
                         </div>
-                      <br>`
-                } else {
-                    return `
-                        <div class="card card-shadow column is-one-third">
+                        <div class="content">
+                          ${movie.Plot}
+                        </div>
+                      </div>
+                    </a>
+                    </div>
+                    <br>
+                  `
+                  }}
+                  ).join('')}
+            </section>
+          </section>
+          <hr>
+          <section class="hero is-info">
+            <p class="title is-1 block mt-5">
+              TV Shows
+            </p>
+            <section class="is-fluid columns is-multiline is-desktop is-tablet is-centered">
+              ${data.map(movie => {
+                if (movie.Type === 'series') {
+                  return `
+                      <div class="card card-shadow column has-background-info-dark p-0 m-1 is-one-quarter">
                         <a href="/movies/${movie.imdbID}">
-                            <div class="card-image">
-                                <figure class="image is-3by4">
-                                    <img src="${movie.Poster.replace('http:', 'https:')}" alt="${movie.Title} poster">
-                                </figure>
-                            </div>
-                            <div class="card-content has-background-info-dark has-text-white-bis">
-                                <div class="media">
-                                    <div class="media-content">
-                                        <p class="title is-4 has-text-white-bis">${movie.Title}</p>
-                                        <p class="subtitle is-6 has-text-white-bis">${movie.Year}</p>
-                                        <p class="subtitle is-6 has-text-white-bis">Rating: ${movie.Rated}</p>
-                                        <p class="subtitle is-6 has-text-white-bis">Runtime: ${movie.Runtime}</p>
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    ${movie.Plot}
-                                </div>
-                            </div>
-                        </a>
+                        <div class="card-image">
+                          <figure class="image is-3by4">
+                            <img src="${movie.Poster.replace('http:', 'https:')}" alt="${movie.Title} poster">
+                          </figure>
                         </div>
-                        <br>
-                    `
+                          <div class="card-content has-text-white-bis">
+                            <div class="media">
+                              <div class="media-content">
+                                <p class="title is-4 has-text-white-bis">${movie.Title}</p>
+                                <p class="subtitle is-6 has-text-white-bis">${movie.Year} present</p>
+                                <p class="subtitle is-6 has-text-white-bis">Rating: ${movie.Rated}</p>
+                                <p class="subtitle is-6 has-text-white-bis">Runtime: ${movie.Runtime}</p>
+                              </div>
+                            </div>
+                            <div class="content">
+                              ${movie.Plot}
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <br>`
                 }}
                 ).join('')}
             </section>
-        
+          </section>
+        </section>
       </div>
     </div>
   
     <!-- Hero footer: will stick at the bottom -->
-    <div class="hero-foot">
-      <nav class="tabs is-boxed is-fullwidth">
-        <div class="container">
-            <h3 class="level-item has-text-centered">Made by Crystal</h3>
-          <ul>
-            <li><a href="https://github.com/crystalatk" target="_blank">GitHub</a></li>
-            <li><a>LinkedIn</a></li>
-            <li><a>Portfolio</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+${foot}
   </section>
 

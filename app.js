@@ -8,20 +8,21 @@ const PORT = 3333;
 const express = require('express'),
     es6Renderer = require('express-es6-template-engine');
 
-    const app = express();
+const app = express();
 
-    app.engine('html', es6Renderer);
-    app.set('views', 'templates');
-    app.set('view engine', 'html');
+app.engine('html', es6Renderer);
+app.set('views', 'templates');
+app.set('view engine', 'html');
+app.use(express.static('public'));
 
-    const SERVER = HTTP.createServer(app);
+const SERVER = HTTP.createServer(app);
 
-    SERVER.listen(PORT, HOSTNAME, () => {
-        console.log(`Server is running at http://${HOSTNAME}:${PORT}.`);
-    });
+SERVER.listen(PORT, HOSTNAME, () => {
+    console.log(`Server is running at http://${HOSTNAME}:${PORT}.`);
+});
 
-    const rootController = require('./routes/index.js');
-    const moviesController = require('./routes/movies.js');
+const rootController = require('./routes/index.js');
+const moviesController = require('./routes/movies.js');
 
-    app.use('/', rootController);
-    app.use('/movies', moviesController);
+app.use('/', rootController);
+app.use('/movies', moviesController);

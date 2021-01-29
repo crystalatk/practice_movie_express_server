@@ -14,6 +14,8 @@ router.get('/', (req, res) => {
         partials: {
             body: 'partials/movie-list',
             head: 'partials/head',
+            nav: 'partials/nav',
+            foot: 'partials/foot'
         },
     })
 })

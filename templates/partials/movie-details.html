@@ -5,7 +5,7 @@
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" href="/">
-            <img src="https://content.nexza.com/companies/e7ec1352-0a82-4e8a-801d-bdc7b7fdad80/logo.3890de6b.png" alt="Logo">
+            <img src="/images/film_roll2.png" alt="Logo">
           </a>
           <span class="navbar-burger" data-target="navbarMenuHeroC">
             <span></span>
@@ -35,41 +35,39 @@
     <div class="container has-text-centered">
       <section class="container is-fluid">
           <section class="hero is-info">
-
               <p class="title is-1 block">
                 ${movie.Title}
               </p>
               <p class="subtitle is-4 block">
                 <b>Rated:</b> ${movie.Rated}
               </p>
-              <div class="columns level is-multiline">
-                <div class="column is-one-third is-vcentered">
-              <p class="subtitle is-6 block">
-               <b>Realease Date:</b> ${movie.Released}
-                <br>
-                <b>Genre:</b> ${movie.Genre}
-              <br>
-                <b>Director:</b> ${movie.Director}
-                <br>
-                <b>Awards:</b> ${movie.Awards}
-                <br>
-                <br>
-                ${movie.totalSeasons ? `<b># of seasons:</b> ${movie.totalSeasons}` : ''
-                }
-              </p>
-            </div>
-            <div class="column is-two-thirds level-item">
-                <p class="subtitle is-4">
-                ${movie.Plot}
-              </p>
-            </div>
-          </div>
-          <div>
-            <p>
-              <b>Actors:</b> ${movie.Actors}
-              <br>
-            </p>
-          </div>
+              <div class="m-1 columns">
+                <div class="column is-one-half has-text-left">
+                  <h3 class="title is-4">Details:</h3>
+                  <p class="subtitle is-6">
+                    <b>Director:</b> ${movie.Director}
+                    <br>
+                    <b>Actors:</b> ${movie.Actors}
+                    <br>
+                    <b>Awards:</b> ${movie.Awards}
+                    <br>
+                    <b>Runtime:</b> ${movie.Runtime}
+                    <br>
+                    <b>Realease Date:</b> ${movie.Released}
+                    <br>
+                    <b>Genre:</b> ${movie.Genre}
+                    <br>
+                    ${movie.totalSeasons ? `<b>Seasons:</b> ${movie.totalSeasons}` : ''
+                    }
+                  </p>
+                </div>
+                <div class="column is-one half">
+                  <h3 class="title is-4">Summary:</h3>
+                  <p class="subtitle is-4">
+                    ${movie.Plot}
+                  </p>
+                </div>
+              </div>
           </section>
           <section class="">
             ${movie.Images.map(image => 
